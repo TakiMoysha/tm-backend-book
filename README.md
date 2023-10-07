@@ -12,4 +12,4 @@ How to build an application, handle errors, write logs (for service employees).
 1. [django-templated-mail - simple email system / djangopackages.org](https://djangopackages.org/packages/p/django-templated-mail/)
 
 # References
-1. ( Программирование: ФП подходы на продакшене / SOER / youtube.com)[https://www.youtube.com/watch?v=9ajlmRJwF5M]
+1. [Программирование: ФП подходы на продакшене / SOER / youtube.com](https://www.youtube.com/watch?v=9ajlmRJwF5M)
