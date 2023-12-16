@@ -3,7 +3,20 @@ The main goal is to learn django. Writing typing rules (mypy, python rules), usi
 
 How to build an application, handle errors, write logs (for service employees).
 
-# My Awesome
+# Projects
+1. **access_control** - 
+
+# CheatSheet
+
+```bash
+poetry install
+poetry shell
+
+django-admin startproject "<project_name>"
+django-admin startapp "<app_name>" --template <template>
+```
+
+# Awesome
 
 ## Projects
 1. [Taiga - project management / github.com](https://github.com/taigaio/taiga): #access_control, #permissions, #roles, #mailing, #spa, #docs

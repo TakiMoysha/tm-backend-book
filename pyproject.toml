@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "tm-django-book"
+version = "0.1.0"
+description = ""
+authors = ["TakiMoysha <mpwema782@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+channels = {extras = ["daphne"], version = "^4.0.0"}
+daphne = "^4.0.0"
+Django = "^5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
