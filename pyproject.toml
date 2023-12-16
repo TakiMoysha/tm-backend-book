@@ -10,6 +10,7 @@ python = "^3.11"
 channels = {extras = ["daphne"], version = "^4.0.0"}
 daphne = "^4.0.0"
 Django = "^5.0"
+django-stubs = {extras = ["compatible-mypy"], version = "^4.2.7"}
 
 
 [build-system]

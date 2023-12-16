@@ -23,6 +23,12 @@ django-admin startapp "<app_name>" --template <template>
 
 ## Packages
 1. [django-templated-mail - simple email system / djangopackages.org](https://djangopackages.org/packages/p/django-templated-mail/)
+2. [django-allauth / github.com](https://github.com/pennersr/django-allauth)
+
+# Resources
+1. [Classy Class-Based Views / ccbbv.co.uk](https://ccbv.co.uk/)
+2. [Django Vanilla Views / django-vanilla-views.org](http://django-vanilla-views.org/)
+3. [Pinax project / pinaxproject.com](https://pinaxproject.com/pinax/)
 
 # References
 1. [Программирование: ФП подходы на продакшене / SOER / youtube.com](https://www.youtube.com/watch?v=9ajlmRJwF5M)
