@@ -7,11 +7,18 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-channels = {extras = ["daphne"], version = "^4.0.0"}
+channels = { extras = ["daphne"], version = "^4.0.0" }
 daphne = "^4.0.0"
 Django = "^5.0"
-django-stubs = {extras = ["compatible-mypy"], version = "^4.2.7"}
+django-stubs = { extras = ["compatible-mypy"], version = "^4.2.7" }
+django-treebeard = "^4.7"
+django-health-check = "^3.17.0"
+psutil = "^5.9.7"
+django-storages = "^1.14.2"
 
+
+[tool.poetry.group.dev.dependencies]
+bpython = "^0.24"
 
 [build-system]
 requires = ["poetry-core"]
