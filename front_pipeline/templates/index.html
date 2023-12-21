@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Front-End Pipeline - Django</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  </head>
+  <body> 
+    <div class="grid">
+      <div class="col-6">
+        <h1>Vue</h1>
+        <div style="border: 1px double black; min-height: 300px" id="spa-vue-app"></div>
+      </div>
+
+      <div class="col-6">
+        <h1>React</h1>
+        <div style="border: 1px double black; min-height: 300px" id="spa-react-app"></div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
