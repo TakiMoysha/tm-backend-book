@@ -15,6 +15,7 @@ django-treebeard = "^4.7"
 django-health-check = "^3.17.0"
 psutil = "^5.9.7"
 django-storages = "^1.14.2"
+whitenoise = "^6.6.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -23,3 +24,8 @@ bpython = "^0.24"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+plugins = [ "mypy_django_plugin.main", ]
+
+# ignore_missing_imports = true
