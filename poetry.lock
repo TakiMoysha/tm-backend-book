@@ -587,6 +587,17 @@ files = [
 Django = ">=3.2"
 
 [[package]]
+name = "django-vite-plugin"
+version = "2.0.0"
+description = "Vite build tools integration for django"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django_vite_plugin-2.0.0-py3-none-any.whl", hash = "sha256:518602c9f263e07e3d0f4856a50020c0a75834936b9ef69b3636dd148204d397"},
+    {file = "django_vite_plugin-2.0.0.tar.gz", hash = "sha256:267abe6007cd98e8e9f926687b6cb3bc8abcb04fe5d7a863698001a03f2cbb51"},
+]
+
+[[package]]
 name = "greenlet"
 version = "3.0.2"
 description = "Lightweight in-process concurrent programming"
@@ -1208,4 +1219,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "038b042ebea76f9c64f36bc6aa9906dd777fdb3b68299b3d44939aadfe975831"
+content-hash = "45a469c1cc435fd21d4bb6185ff2ea63979fc04abb2e3a7be11cba43e84ee134"

@@ -17,6 +17,7 @@ psutil = "^5.9.7"
 django-storages = "^1.14.2"
 whitenoise = "^6.6.0"
 django-livereload-server = "^0.5.1"
+django-vite-plugin = "^2.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
