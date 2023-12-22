@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@s:web/*": [
+        "./../web/static/web/*"
+      ],
+      "@t:web/*": [
+        "./../web/templates/web/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
