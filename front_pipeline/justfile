@@ -1,3 +1,5 @@
 dev:
   cd front && npm run dev & \
-  python manage.py runserver
+  python manage.py runserver & \
+  python manage.py livereload
+
