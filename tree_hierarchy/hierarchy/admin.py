@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Company
+from .models import Category
 
-@admin.register(Company)
-class CompanyAdmin(admin.ModelAdmin):
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
     pass
