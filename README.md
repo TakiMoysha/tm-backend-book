@@ -40,6 +40,7 @@ just startproject <project_name>
 1. [Classy Class-Based Views / ccbbv.co.uk](https://ccbv.co.uk/)
 2. [Django Vanilla Views / django-vanilla-views.org](http://django-vanilla-views.org/)
 3. [Pinax project / pinaxproject.com](https://pinaxproject.com/pinax/)
+4. https://django-best-practices.readthedocs.io/en/latest/index.html
 
 # References
 1. [Программирование: ФП подходы на продакшене / SOER / youtube.com](https://www.youtube.com/watch?v=9ajlmRJwF5M)
