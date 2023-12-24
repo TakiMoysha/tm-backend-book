@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from common.db import models
 
 
-class Registry(models.Model):
+class TreeRegistryModel(models.Model):
     # GenericForeignKey
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()

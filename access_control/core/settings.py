@@ -19,6 +19,7 @@ INSTALLED_APPS = [
 
     'core',
     'record',
+
     'registry.projects',
     'registry.groups',
     'registry.references',
