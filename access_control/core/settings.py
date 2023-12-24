@@ -19,7 +19,9 @@ INSTALLED_APPS = [
 
     'core',
     'record',
-    'registry',
+    'registry.projects',
+    'registry.groups',
+    'registry.references',
 ]
 
 MIDDLEWARE = [
