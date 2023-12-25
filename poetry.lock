@@ -516,6 +516,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-authority"
+version = "0.14"
+description = "A Django app that provides generic per-object-permissions for Django's auth app."
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-authority-0.14.tar.gz", hash = "sha256:f2e0b2adfa98cc5f0b4766f35d2666c7d040452d91e93fc47401e85f85bbecbd"},
+    {file = "django_authority-0.14-py2.py3-none-any.whl", hash = "sha256:20642871d146e9f989d764db28bd6ea441157ea152c817338db574632df7cd67"},
+]
+
+[package.dependencies]
+django = "*"
+
+[[package]]
 name = "django-cors-headers"
 version = "4.3.1"
 description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
@@ -1469,4 +1483,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "14ab70b2abba1dfe1a830eeabc86a103fe8838d463cd3b05cfab7383c75a9901"
+content-hash = "880cd435bffc9c8689312a9b33e09f9b9e140c4b4ea9b9e05ea3dd0b75ad7fa8"
