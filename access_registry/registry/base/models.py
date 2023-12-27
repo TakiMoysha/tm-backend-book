@@ -3,10 +3,13 @@ from django.contrib.contenttypes.models import ContentType
 
 from django.db import models
 
-class Registry(models.Model):
+class BaseRegistry(models.Model):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
-    registry = GenericForeignKey('content_type', 'object_id')
+    registry = GenericForeignKey('object_id')
 
-    # class Meta:
-    #     abstract = True
+    class Meta:
+        abstract = True
+        indexes = [
+            models.Index(fields=['content_type', 'object_id']),
+        ]

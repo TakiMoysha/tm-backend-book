@@ -1,6 +1,6 @@
 from django.db import models
 
-from ..base.models import Registry
+from ..base.models import BaseRegistry
 
 class RegistryGroup(models.Model):
-    registry = models.ForeignKey(Registry, on_delete=models.CASCADE)
+    registry = models.ForeignKey(BaseRegistry, on_delete=models.CASCADE)

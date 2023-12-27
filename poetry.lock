@@ -563,6 +563,19 @@ docs = ["sphinx"]
 test = ["celery", "pytest", "pytest-cov", "pytest-django", "redis"]
 
 [[package]]
+name = "django-jet"
+version = "1.0.8"
+description = "Modern template for Django admin interface with improved functionality"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-jet-1.0.8.tar.gz", hash = "sha256:f521dc0873023afa198d2b57687e0593ee62022bd50fa59506dfce69b101cd9e"},
+]
+
+[package.dependencies]
+Django = "*"
+
+[[package]]
 name = "django-js-asset"
 version = "2.2.0"
 description = "script tag with additional attributes for django.forms.Media"
@@ -681,6 +694,34 @@ files = [
     {file = "django_vite_plugin-2.0.0-py3-none-any.whl", hash = "sha256:518602c9f263e07e3d0f4856a50020c0a75834936b9ef69b3636dd148204d397"},
     {file = "django_vite_plugin-2.0.0.tar.gz", hash = "sha256:267abe6007cd98e8e9f926687b6cb3bc8abcb04fe5d7a863698001a03f2cbb51"},
 ]
+
+[[package]]
+name = "djangoviz"
+version = "0.1.1"
+description = "A visualization tool."
+optional = false
+python-versions = ">=3.6.0"
+files = [
+    {file = "djangoviz-0.1.1-py3-none-any.whl", hash = "sha256:2a5ec1a25d94607c898f9236f0f1c72fbaf83e4ac818e38b205d6976e805ad8d"},
+    {file = "djangoviz-0.1.1.tar.gz", hash = "sha256:028970923d8d65e210dc10ab80a51e3e69169cc06894c45b8b14554f12aec06c"},
+]
+
+[package.dependencies]
+django = ">=2.2.0"
+graphqlclient = ">=0.2.0"
+
+[[package]]
+name = "graphqlclient"
+version = "0.2.4"
+description = "Simple GraphQL client for Python 2.7+"
+optional = false
+python-versions = "*"
+files = [
+    {file = "graphqlclient-0.2.4.tar.gz", hash = "sha256:b3305f3df88c04839195754d409a49a2dc3adbcba4ebf9133b5663749e1dd92c"},
+]
+
+[package.dependencies]
+six = "*"
 
 [[package]]
 name = "greenlet"
@@ -1483,4 +1524,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "880cd435bffc9c8689312a9b33e09f9b9e140c4b4ea9b9e05ea3dd0b75ad7fa8"
+content-hash = "94121de22f6257fa13dce4228a4365fc0ce80c693633d2a70c3d33aea4bb64d2"
