@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "web-protocols"
+name = "protocols_server"
 version = "0.1.0"
 description = ""
 authors = ["TakiMoysha <mpwema782@gmail.com>"]
@@ -10,7 +10,7 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-dev = "app_protocols.main:runner"
+dev = "app_protocols.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^3.12"

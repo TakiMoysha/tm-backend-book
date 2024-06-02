@@ -4,14 +4,15 @@ import importlib
 import uvicorn
 import click
 
-from app_protocols.utils import WebProtocolsStartingParams
+from app_protocols.dto import AppStartingParams
 from app_protocols.consts import SUPPORTED_GATEWAY_SERVERS
 
 logger = getLogger(__name__)
 
 
-def init_app_params(**kwargs) -> WebProtocolsStartingParams:
-    app = WebProtocolsStartingParams(
+def init_app_params(**kwargs) -> AppStartingParams:
+    app = AppStartingParams(
+        app=kwargs["app"],
         bind_host=kwargs["host"],
         bind_port=kwargs["port"],
         config_file=kwargs["config"],
@@ -19,8 +20,9 @@ def init_app_params(**kwargs) -> WebProtocolsStartingParams:
     return app
 
 
-def generate_gateway_kwargs(app_params: WebProtocolsStartingParams) -> dict:
+def generate_gateway_kwargs(app_params: AppStartingParams) -> dict:
     kwargs = {
+        "app": app_params.app,
         "host": app_params.bind_host,
         "port": app_params.bind_port,
         "use_colors": True,
@@ -44,6 +46,11 @@ def generate_gateway_kwargs(app_params: WebProtocolsStartingParams) -> dict:
     default=SUPPORTED_GATEWAY_SERVERS.uvicorn.value,
     help="Gateaway server. [default: {}]".format(SUPPORTED_GATEWAY_SERVERS),
 )
+@click.option(
+    "--app",
+    default="app_protocols.app:app",
+    help="Python ASGI app. [default: app_protocols.app:app]",
+)
 def runserver(**kwargs):
     if kwargs["version"]:
         from . import __version__
@@ -61,5 +68,5 @@ def runserver(**kwargs):
 
     app_params = init_app_params(**kwargs)
     gateway_kwargs = generate_gateway_kwargs(app_params)
-    logger.warn(f"running kwargs: {gateway_kwargs}")
-    return uvicorn.run("app_protocols.app:app", **gateway_kwargs)
+    logger.info(f"Running server with kwargs: {gateway_kwargs}")
+    return uvicorn.run(**gateway_kwargs)

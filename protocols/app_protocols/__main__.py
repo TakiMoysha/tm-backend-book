@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
+# running python module
 
-def runner():
+
+def main():
     import sys
 
     from app_protocols.cli import runserver
@@ -15,4 +17,4 @@ def runner():
 
 
 if __name__ == "__main__":
-    runner()
+    main()
