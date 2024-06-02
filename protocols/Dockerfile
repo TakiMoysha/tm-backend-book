@@ -5,7 +5,7 @@ ENV TZ="Europe/Belgrade"
 ENV UID=1000
 ENV GID=1000
 ENV DEBUG="false"
-ENV WEBDAV_LOGGING_LEVEL="INFO"
+ENV LOGGING_LEVEL="INFO"
 
 COPY docker /app
 COPY requirements /app/requirements

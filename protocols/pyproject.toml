@@ -4,10 +4,13 @@ version = "0.1.0"
 description = ""
 authors = ["TakiMoysha <mpwema782@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "app_protocols" }]
+packages = [
+  { include = "app_protocols" },
+  { include = "app_protocols/webdav" }
+]
 
 [tool.poetry.scripts]
-dev = "app_protocols.__main__:main"
+dev = "app_protocols.main:runner"
 
 [tool.poetry.dependencies]
 python = "^3.12"
