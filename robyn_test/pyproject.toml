@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "robyn-test"
+version = "0.1.0"
+description = ""
+authors = ["TakiMoysha <mpwema782@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+robyn = "^0.54.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
