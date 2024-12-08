@@ -75,7 +75,10 @@ _Attributes_ define the characteristics of each entity, such as its properties, 
 **Create migration environment:**
 `alembic init alembic` - Create a new directory for Alembic migrations.
 
-Added models to `alembic/env.py` file for autogenerate support
+Added models to `alembic/env.py` and set up `sqlalchemy_url` file for autogenerate support
+
+For generate migration file, run `alembic revision --autogenerate -m "commit"`.
+For apply migration, run `alembic upgrade head`.
 
 ## References
 
