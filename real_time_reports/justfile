@@ -1,0 +1,2 @@
+make-migrations *args:
+    uv run alembic revision --autogenerate {{ args }}
