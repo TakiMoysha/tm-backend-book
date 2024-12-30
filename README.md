@@ -1,24 +1,33 @@
-# tm-django-book
+# Backend Book
 
-The main goal is to learn django. Writing typing rules (mypy, python rules),
-using nosql, learning function-based, class-based and ViewSet. Overriding apps
-defined in django (sessions, middleware and etc.)
+The main goal is to learn backend practices. Typing rules (mypy, python rules), nosql, function-based & class-based & ViewSet. Overriding apps defined in django (sessions, middleware and etc.)
 
 How to build an application, handle errors, write logs (for service employees).
 
+The backend can be divided into components:
+
+- interface (cli, admin, api, ...)
+- business (logic for which the server is responsible)
+- store (cache, database, fs, ...)
+
+Backend theory and methodologys: deadline propagation; 
+
 # Projects
 
-* **access_control** -
-* **access_rbac** -
-* **access_registry** -
-* **admin_jet** - bad version (depreceated functions)
-* **context_processor** -
-* **monitoring_services** - health check for services
-* **pattern_repository** -
-* **pipeline_breeze** - breeze it is package for dev app with Inhertia and Vite
-* **pipeline_vite** -
-* **pipeline_front** - fullstack development with webpack
-* **tree_hierarchy** -
+- **access_control** -
+- **access_rbac** -
+- **access_registry** -
+- **admin_jet** - bad version (depreceated functions)
+- **context_processor** -
+- **monitoring_services** - health check for services
+- **pattern_repository** -
+- **pipeline_breeze** - breeze it is package for dev app with Inhertia and Vite
+- **pipeline_vite** -
+- **pipeline_front** - fullstack development with webpack
+- **tree_hierarchy** -
+- **robyn_demo** - poking at the features of the robyn framework
+- **webathn** - webauthn sample
+- **deadline_propagation** - example of deadline propagation
 
 # CheatSheet
 
