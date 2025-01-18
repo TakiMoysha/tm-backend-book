@@ -1,2 +1,2 @@
 dev:
-  
+  uv run robyn src/app.py --processes=2 --workders=4 --fast

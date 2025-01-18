@@ -4,7 +4,19 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "jinja2>=3.1.4",
-    "robyn>=0.64.2",
-]
+dependencies = ["jinja2>=3.1.5", "robyn>=0.65.0", "pydantic>=2.10.5"]
+
+[project.scripts]
+dev = "app.app:run_app"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "nodeenv"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build]
+dev-mode-dirs = ["src/"]
+include = ["src/app/**"]
+packages = ["src/app"]
