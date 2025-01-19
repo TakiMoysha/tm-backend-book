@@ -11,18 +11,21 @@ from robyn import Request, Response, SubRouter
 from app.cache import CacheClient
 from app.consts import HeadersContentType
 from app.database import DatabaseClient
-
-from .models import Order, OrdersPage
+from app.models import Order, OrdersPage
 
 logger = structlog.get_logger()
 router = SubRouter(__file__, prefix="/api")
+router.inject(conn=DatabaseClient)
+router.inject(cache=CacheClient)
 
 
 @router.get("/health")
-async def h(request: Request, global_dependencies):
+async def h(request: Request, global_dependencies) -> Response:
     # , database: MockDatabase, cache: MockCache
     deps_map = router.dependencies.get_global_dependencies()
     from_dishka = deps_map.get("from_dishka")
+    conn = router.dependencies.get_router_dependencies(router).get("conn")
+    logger.info("depenencies", conn=global_dependencies)
 
     if from_dishka is None:
         return Response(
@@ -48,21 +51,13 @@ async def h(request: Request, global_dependencies):
 
 
 @router.get("/static/{static_path}")
-async def static_files(
-    request: Request,
-    database: DatabaseClient,
-    cache: CacheClient,
-):
+async def static_files(request: Request):
     print(request.path_params.get("static_path"))
     return "done"
 
 
 @router.get("/orders")
-async def test_orders(
-    request: Request,
-    database: DatabaseClient,
-    cache: CacheClient,
-):
+async def orders_page(request: Request):
     page_size = 10
     orders = [
         Order(
@@ -85,11 +80,7 @@ async def test_orders(
 
 
 @router.get("/orders/stats")
-async def get_device_stats(
-    request: Request,
-    database: DatabaseClient,
-    cache: CacheClient,
-):
+async def get_device_stats(request: Request, global_dependencies):
     try:
         # start_time = time.perf_counter()
         stats = await cache.stats()
