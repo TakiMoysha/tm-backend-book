@@ -1,4 +1,3 @@
-from robyn.dependency_injection import DependencyMap
 import structlog
 
 from robyn import Config, Robyn
@@ -17,16 +16,18 @@ def create_app() -> Robyn:
 
     @app.get("/")
     async def index(request):
-        deps_map = DependencyMap().get_dependency_map(app)
-        logger.info("depenencies", global_depenencies=deps_map)
+        deps = app.dependencies.get_global_dependencies()
+        logger.info("depenencies", deps=deps)
+        from_dishka = deps.get("from_dishka")
+        logger.info("depenencies", from_dishka=from_dishka)
 
         return "ok"
 
+    # app.inject(database=DatabaseClient)
     # not working, use di.py and dishka
     # router.inject(database=MockCache)
     # router.inject(database=MockDatabase)
     setup_robyn_dishka(app)
-
     return app
 
 

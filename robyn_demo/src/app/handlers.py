@@ -3,8 +3,10 @@ from datetime import datetime
 import aiomcache
 import orjson
 import structlog
+from dishka.container import ContextWrapper
+
+# from dishka.integrations.fastapi import FromDishka
 from robyn import Request, Response, SubRouter
-from robyn.dependency_injection import DependencyMap
 
 from app.cache import CacheClient
 from app.consts import HeadersContentType
@@ -17,15 +19,27 @@ router = SubRouter(__file__, prefix="/api")
 
 
 @router.get("/health")
-async def h(request: Request):
+async def h(request: Request, global_dependencies):
     # , database: MockDatabase, cache: MockCache
-    deps_map = DependencyMap().get_dependency_map(router)
-    logger.info("depenencies", global_depenencies=deps_map)
-    _request = "ok" if request else "error"
-    _database = "ok" if "database" else "error"
-    _cache = "ok" if "cache" else "error"
+    deps_map = router.dependencies.get_global_dependencies()
+    from_dishka = deps_map.get("from_dishka")
 
-    data = {"request": _request, "database": _database, "cache": _cache}
+    if from_dishka is None:
+        return Response(
+            status_code=200,
+            headers={"Content-Type": HeadersContentType.PLAIN},
+            description="error",
+        )
+
+    container: ContextWrapper = from_dishka()
+    database = container.container.get(DatabaseClient)
+    cache = container.container.get(CacheClient)
+
+    data = {
+        "request": "ok" if request else "error",
+        "database": "ok" if database else "error",
+        "cache": "ok" if cache else "error",
+    }
     return Response(
         status_code=200,
         headers={"Content-Type": HeadersContentType.JSON},
@@ -34,13 +48,21 @@ async def h(request: Request):
 
 
 @router.get("/static/{static_path}")
-async def static_files(request: Request, database: DatabaseClient, cache: CacheClient):
+async def static_files(
+    request: Request,
+    database: DatabaseClient,
+    cache: CacheClient,
+):
     print(request.path_params.get("static_path"))
     return "done"
 
 
 @router.get("/orders")
-async def test_orders(request: Request, database: DatabaseClient, cache: CacheClient):
+async def test_orders(
+    request: Request,
+    database: DatabaseClient,
+    cache: CacheClient,
+):
     page_size = 10
     orders = [
         Order(
@@ -63,7 +85,11 @@ async def test_orders(request: Request, database: DatabaseClient, cache: CacheCl
 
 
 @router.get("/orders/stats")
-async def get_device_stats(request: Request, database: DatabaseClient, cache: CacheClient):
+async def get_device_stats(
+    request: Request,
+    database: DatabaseClient,
+    cache: CacheClient,
+):
     try:
         # start_time = time.perf_counter()
         stats = await cache.stats()
