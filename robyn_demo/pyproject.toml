@@ -4,7 +4,14 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["jinja2>=3.1.5", "robyn>=0.65.0", "pydantic>=2.10.5"]
+dependencies = [
+    "jinja2>=3.1.5",
+    "robyn>=0.65.0",
+    "pydantic>=2.10.5",
+    "structlog>=25.1.0",
+    "aiomcache>=0.8.2",
+    "dishka>=1.4.2",
+]
 
 [project.scripts]
 dev = "app.app:run_app"

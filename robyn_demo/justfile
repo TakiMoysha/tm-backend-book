@@ -1,2 +1,2 @@
 dev:
-  uv run dev --processes=2 --workders=4
+  uv run dev --processes=1 --workders=4
