@@ -30,6 +30,7 @@ django-jet = "^1.0.8"
 
 [tool.poetry.group.dev.dependencies]
 bpython = "^0.24"
+locust = "^2.32.6"
 
 [build-system]
 requires = ["poetry-core"]
