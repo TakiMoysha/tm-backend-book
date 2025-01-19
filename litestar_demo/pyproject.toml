@@ -1,0 +1,30 @@
+[project]
+name = "litestar-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "TakiMoysha", email = "mpwema782@gmail.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "aiomcache>=0.8.2",
+    "litestar[redis,structlog]>=2.14.0",
+    "litestar-granian",
+    "orjson>=3.9.15",
+    "structlog>=25.1.0",
+    "uvicorn>=0.34.0",
+]
+
+[project.scripts]
+# dev = "app.app:create_app"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling", "nodeenv"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build]
+dev-mode-dirs = ["src/"]
+include = ["src/app/**"]
+packages = ["src/app"]
