@@ -14,8 +14,15 @@ def create_app() -> Robyn:
     app = Robyn(__file__, config=config)
     app.include_router(router)
 
+    app.inject(logger=logger)
+
     @app.get("/")
-    async def index(request):
+    async def index(
+        request,
+        global_dependencies,
+        router_dependencies,
+    ):
+        logger.info("depenencies", deps=global_dependencies)
         deps = app.dependencies.get_global_dependencies()
         logger.info("depenencies", deps=deps)
         from_dishka = deps.get("from_dishka")

@@ -3,6 +3,7 @@ from datetime import datetime
 import aiomcache
 import orjson
 import structlog
+from typing import Annotated
 from dishka.container import ContextWrapper
 
 # from dishka.integrations.fastapi import FromDishka
@@ -20,12 +21,17 @@ router.inject(cache=CacheClient)
 
 
 @router.get("/health")
-async def h(request: Request, global_dependencies) -> Response:
+async def h(
+    request: Request,
+    global_dependencies,
+    router_dependencies,
+) -> Response:
     # , database: MockDatabase, cache: MockCache
     deps_map = router.dependencies.get_global_dependencies()
     from_dishka = deps_map.get("from_dishka")
-    conn = router.dependencies.get_router_dependencies(router).get("conn")
-    logger.info("depenencies", conn=global_dependencies)
+    # conn = router.dependencies.get_router_dependencies(router).get("conn")
+    logger.info("G:depenencies", conn=global_dependencies)
+    logger.info("R:depenencies", conn=router_dependencies)
 
     if from_dishka is None:
         return Response(

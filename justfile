@@ -5,5 +5,5 @@ py-new-app app_name:
     uv init {{ app_name }} --no-workspace
 
 # in locust folder
-loadtesting:
-    locust --host localhost
+locust:
+    locust --host http://localhost:8000
