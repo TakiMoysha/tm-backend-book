@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "1.0.50",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "test": "bun test",
+    "migrate": "bun run src/migrations.ts"
+  },
+  "dependencies": {
+    "@elysiajs/swagger": "^1.2.0",
+    "@oslojs/crypto": "^1.0.1",
+    "@oslojs/encoding": "^1.1.0",
+    "elysia": "latest",
+    "postgres": "^3.4.5",
+    "postgres-shift": "^0.1.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "module": "src/index.js"
+}
