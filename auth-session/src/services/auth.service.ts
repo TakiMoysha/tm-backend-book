@@ -76,3 +76,4 @@ export const validateSessionToken = async (
 
   return { session, user };
 };
+

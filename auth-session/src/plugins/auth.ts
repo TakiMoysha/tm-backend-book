@@ -11,7 +11,8 @@ export const AuthPlugin = (opts: AuthPluginOptions = defaultOptions) => {
 
   return new Elysia({ prefix: "/auth" })
     .decorate("options", opts)
-    .post("/sign-in", () => { })
+    .post("/sign-in", (ctx) => {
+    })
     .post("/sign-up", () => { })
     .post("/sign-out", () => { });
 };
