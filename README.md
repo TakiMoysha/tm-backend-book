@@ -10,10 +10,14 @@ The backend can be divided into components:
 - business (logic for which the server is responsible)
 - store (cache, database, fs, ...)
 
-Backend theory and methodologys: deadline propagation; 
+Backend theory and methodologys: deadline propagation;
+
+[About FastAPI deployment, useful for python deployment / github.com](https://github.com/zhanymkanov/fastapi-best-practices)
+
 
 # Projects
 
+- **encore-demo** - ts framework based on rust runtime [encore.ts] 
 - **access_control** -
 - **access_rbac** -
 - **access_registry** -
@@ -22,24 +26,14 @@ Backend theory and methodologys: deadline propagation;
 - **monitoring_services** - health check for services
 - **pattern_repository** -
 - **pipeline_breeze** - breeze it is package for dev app with Inhertia and Vite
-- **pipeline_vite** -
+- **pipeline_vite** - fullstack dev with vite
 - **pipeline_front** - fullstack development with webpack
 - **tree_hierarchy** -
 - **robyn_demo** - poking at the features of the robyn framework
 - **webathn** - webauthn sample
 - **deadline_propagation** - example of deadline propagation
-
-# CheatSheet
-
-```shell
-poetry install
-poetry shell
-
-django-admin startproject <project_name>
-django-admin startapp <app_name> --template <template>
-
-just startproject <project_name>
-```
+- **plans** - user subscription level, similar to user groups
+- **multiplexing websockets** - combining several data channels into one
 
 # Awesome
 
@@ -52,7 +46,7 @@ just startproject <project_name>
 ## Projects
 
 1. [Taiga - project management / github.com](https://github.com/taigaio/taiga):
-   #access_control, #permissions, #roles, #mailing, #spa, #docs
+2. [Django Plans / github.com](https://github.com/django-getpaid/django-plans)
 
 ## Packages
 
