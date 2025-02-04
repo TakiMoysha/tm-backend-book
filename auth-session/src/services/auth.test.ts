@@ -4,7 +4,7 @@ import {
   generateSesionToken,
   createSession,
   validateSessionToken,
-} from "./auth.service";
+} from "./auth.session";
 
 describe("auth:session", () => {
   const ids = [3123, 1521, 48124, 598125];

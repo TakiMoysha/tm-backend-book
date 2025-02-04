@@ -10,9 +10,11 @@
     "@elysiajs/swagger": "^1.2.0",
     "@oslojs/crypto": "^1.0.1",
     "@oslojs/encoding": "^1.1.0",
+    "@redis/json": "^1.0.7",
     "elysia": "latest",
     "postgres": "^3.4.5",
-    "postgres-shift": "^0.1.0"
+    "postgres-shift": "^0.1.0",
+    "redis": "^4.7.0"
   },
   "devDependencies": {
     "bun-types": "latest"
