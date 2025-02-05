@@ -11,9 +11,9 @@ describe("auth:session", () => {
   const setCookies = jest.fn((cookies: { "x-session": string }) => { });
   const getTokenFromRequest = jest.fn(() => generateSesionToken());
 
-  it.each(ids)("should create session", async (userId) => {
+  it.each(ids)("should create session", async (accountId) => {
     const token = generateSesionToken();
-    const session = await createSession(token, userId, { db: sql });
+    const session = await createSession(token, accountId, { db: sql });
     expect(session).toBeTruthy();
   });
 
@@ -23,13 +23,13 @@ describe("auth:session", () => {
     expect(result).toBeTruthy();
   });
 
-  it.skip("user-case: set cookies", async () => {
+  it.skip("use-case: set cookies", async () => {
     const token = generateSesionToken();
     const session = await createSession(token, 1, { db: sql });
     setCookies({ "x-session": session.id });
   });
 
-  it.skip("user-case: validate session", async ({ }) => {
+  it.skip("use-case: validate session", async ({ }) => {
     const token = getTokenFromRequest();
     const result = await validateSessionToken(token, { db: sql });
     if (result.session === null) {

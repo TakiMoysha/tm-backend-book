@@ -1,10 +1,10 @@
 export interface ISession {
   id: string;
-  userId: number;
+  accountId: number;
   createdAt: Date;
-  expiresAt: Date;
+  expiredAt: Date;
 }
 
-export interface IUser {
+export interface IAccount {
   id: number;
 }

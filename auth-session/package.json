@@ -13,7 +13,7 @@
     "@redis/json": "^1.0.7",
     "elysia": "latest",
     "postgres": "^3.4.5",
-    "postgres-shift": "^0.1.0",
+    "postgres-shift": "git+ssh://github.com/porsager/postgres-shift",
     "redis": "^4.7.0"
   },
   "devDependencies": {

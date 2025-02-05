@@ -26,17 +26,17 @@ bun run dev
 - ex. swagger;
 
 ```ts
-class User {
+class Account {
   constructor(public email: string) {}
 }
 
 const app = new Elysia()
   .use(swagger())
-  .decorate("user", User)
-  .get("/user", ({ user }) => user.email)
+  .decorate("account", Account)
+  .get("/account", ({ account }) => account.email)
   .get(
-    "/user/:id",
-    ({ user, params, { id }, error }) => user.name ?? error(404, "custom message"),
+    "/account/:id",
+    ({ account, params, { id }, error }) => account.name ?? error(404, "custom message"),
     { params: t.Object({ id: t.String() }) }
   )
   .get("/path", (ctx) => {})
