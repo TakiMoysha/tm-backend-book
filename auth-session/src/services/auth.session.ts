@@ -30,10 +30,11 @@ export const createSession = async (
   };
 
   console.log(`[DEBUG] prepare session: ${JSON.stringify(db(session))}`);
+
   await db`
-    INSERT INTO session 
-      ${db(session, "id", "accountId", "createdAt", "expiredAt")}
-    RETURNING id, user_id;`;
+    INSERT INTO session (id, account_id, created_at, expired_at)
+    VALUES (${session.id}, ${session.accountId}, ${session.createdAt}, ${session.expiredAt})
+    RETURNING id, account_id;`;
 
   console.log("[DEBUG] created session: ", session);
   return session;

@@ -37,3 +37,8 @@ describe("auth:session", () => {
     }
   });
 });
+
+describe("auth:account", () => {
+
+});
+
