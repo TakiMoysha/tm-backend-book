@@ -14,26 +14,30 @@ Backend theory and methodologys: deadline propagation;
 
 [About FastAPI deployment, useful for python deployment / github.com](https://github.com/zhanymkanov/fastapi-best-practices)
 
-
 # Projects
 
-- **encore-demo** - ts framework based on rust runtime [encore.ts] 
-- **access_control** -
-- **access_rbac** -
-- **access_registry** -
-- **admin_jet** - bad version (depreceated functions)
-- **context_processor** -
-- **monitoring_services** - health check for services
-- **pattern_repository** -
-- **pipeline_breeze** - breeze it is package for dev app with Inhertia and Vite
-- **pipeline_vite** - fullstack dev with vite
-- **pipeline_front** - fullstack development with webpack
-- **tree_hierarchy** -
-- **robyn_demo** - poking at the features of the robyn framework
-- **webathn** - webauthn sample
-- **deadline_propagation** - example of deadline propagation
+- **webauth** -
+- **rbac_hierarchy** -
+- **real_time_analyze** - analitics and reports
+- **registry** - <!-- working with django ContentType -->
+
+> ```python
+>   class BaseRegistry(models.Model):
+>      content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+>      object_id = models.PositiveIntegerField()
+>      registry = GenericForeignKey('object_id')
+>
+>      class Meta:
+>         abstract = True
+>         indexes = [
+>               models.Index(fields=['content_type', 'object_id']),
+>         ]
+> ```
+
 - **plans** - user subscription level, similar to user groups
 - **multiplexing websockets** - combining several data channels into one
+
+- **advanced_sessions** -
 
 # Awesome
 
@@ -43,20 +47,20 @@ Backend theory and methodologys: deadline propagation;
 
 - Database Design
 
-## Projects
+## Working with Django
+
+- [djangoviz - visualize your models and their relationships using](https://github.com/ariga/djangoviz)
+- [django-storages - provide a variety of storage backends in a single library](https://github.com/jschneier/django-storages)
+- [django-health-check - checks for various conditions and provides reports when anomalous behavior is detected](https://django-health-check.readthedocs.io/en/latest/)
+- [django-templated-mail - simple email system](https://djangopackages.org/packages/p/django-templated-mail/)
+- [django-allauth - ](https://github.com/pennersr/django-allauth)
+
+## Open-Source
 
 1. [Taiga - project management / github.com](https://github.com/taigaio/taiga):
 2. [Django Plans / github.com](https://github.com/django-getpaid/django-plans)
 
-## Packages
-
-1. [django-templated-mail - simple email system / djangopackages.org](https://djangopackages.org/packages/p/django-templated-mail/)
-2. [django-allauth / github.com](https://github.com/pennersr/django-allauth)
-3. django-health-check
-4. django-stubs
-5. django-storages
-
-## Outside Packages
+## Access and Permissions
 
 1. [django-rules / github.com](https://github.com/dfunckt/django-rules) -
    version conflict

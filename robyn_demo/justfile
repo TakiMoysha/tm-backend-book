@@ -1,5 +1,0 @@
-dev:
-  uv run dev --processes=1 --workers=4
-
-stage:
-  uv run dev --processes=8

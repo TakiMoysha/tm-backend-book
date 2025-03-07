@@ -1,2 +1,0 @@
-class CacheClient:
-    pass
