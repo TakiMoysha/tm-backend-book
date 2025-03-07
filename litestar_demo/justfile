@@ -1,2 +1,0 @@
-stage:
-  uv run granian --interface asgi app.__main__:asgi
