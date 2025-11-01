@@ -1,0 +1,3 @@
+
+compile *ARGS:
+  uv run protoc -I. --python_out=. ./schemas/*.proto {{ARGS}} 
