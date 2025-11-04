@@ -1,9 +1,12 @@
 import logging
+import os
 import uuid
 from typing import final
 
 import msgspec
 import pydantic
+import sentry_sdk
+import django
 from django.conf import settings
 from django.core.handlers import asgi
 from django.urls import include
@@ -21,9 +24,7 @@ logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
 settings.configure(
     SECRET_KEY="secret",
-    # Keep it as is
     ROOT_URLCONF=__name__,
-    # Required options but feel free to configure as you like
     DMR_SETTINGS={},
     ALLOWED_HOSTS="*",
     DEBUG=True,
@@ -31,6 +32,10 @@ settings.configure(
 
 app = asgi.ASGIHandler()
 
+# 
+django.setup()
+
+sentry_sdk.init(dsn=os.environ.get("SENTRY_DSN"), traces_sample_rate=1.0)
 
 # ==========================================================================================
 
@@ -47,8 +52,7 @@ class MsgSpecUserCreateModel(msgspec.Struct):
 UserCreateModel = MsgSpecUserCreateModel
 Serializer = PydanticSerializer
 Serializer = MsgspecSerializer
-# # ==========================================================================================
-#
+# ==========================================================================================
 
 
 class UserModel(UserCreateModel):
@@ -90,6 +94,7 @@ router = Router(
 )
 urlpatterns = [
     path("api/", include((router.urls, "your_app"), namespace="api")),
+    path("sentry-debug/", (lambda r: 1 / 0)),
 ]
 
 # ===========================================================
@@ -130,19 +135,22 @@ import django.test.client
 
 
 # def test_user_controller_with_pydantic(dmr_client: DMRClient, dmr_rf: DMRRequestFactory) -> None:
-    # request_data = PydanticUserCreateModelFactory.build()
-    # all_users = UserController.as_view()(dmr_rf.get("/api/users/"))
-    # logging.warning(all_users)
+# request_data = PydanticUserCreateModelFactory.build()
+# all_users = UserController.as_view()(dmr_rf.get("/api/users/"))
+# logging.warning(all_users)
 
-    # request = dmr_rf.post("/api/users/", data=request_data, headers={"X-API-Consumer": "my-api"})
-    # response: ResponseSpec = UserController.as_view()(request)
-    #
-    # assert response.status_code == 200, response
+# request = dmr_rf.post("/api/users/", data=request_data, headers={"X-API-Consumer": "my-api"})
+# response: ResponseSpec = UserController.as_view()(request)
+#
+# assert response.status_code == 200, response
+
 
 def test_user_controller_with_msgspec(dmr_client: DMRClient, dmr_rf: DMRRequestFactory) -> None:
     request_data = MsgSpecUserCreateModelFactory.build()
     all_users = UserController.as_view()(dmr_rf.get("/api/users/"))
     logging.warning(all_users)
+
+
 #     # request = dmr_rf.post("/api/users/", data=request_data, headers={"X-API-Consumer": "my-api"})
 #     # response: ResponseSpec = UserController.as_view()(request)
 #
