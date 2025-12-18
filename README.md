@@ -18,21 +18,21 @@ Backend theory and methodologys: deadline propagation;
 
 - **webauth** -
 - **rbac_hierarchy** -
-- **real_time_analyze** - analitics and reports
+- **real_time_analyze** - analytics and reports
 - **registry** - <!-- working with django ContentType -->
 
-> ```python
->   class BaseRegistry(models.Model):
->      content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
->      object_id = models.PositiveIntegerField()
->      registry = GenericForeignKey('object_id')
->
->      class Meta:
->         abstract = True
->         indexes = [
->               models.Index(fields=['content_type', 'object_id']),
->         ]
-> ```
+```python
+class BaseRegistry(models.Model):
+  content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+  object_id = models.PositiveIntegerField()
+  registry = GenericForeignKey('object_id')
+
+    class Meta:
+      abstract = True
+      indexes = [
+        models.Index(fields=['content_type', 'object_id']),
+      ]
+```
 
 - **plans** - user subscription level, similar to user groups
 - **multiplexing websockets** - combining several data channels into one
@@ -67,7 +67,7 @@ Backend theory and methodologys: deadline propagation;
 2. [django-prbac / github.com](https://github.com/dimagi/django-prbac)
    ([docs](https://django-prbac.readthedocs.io/en/latest/)) - version conflict
 3. [django-auhority / django-authority.readthedocs.io](https://django-authority.readthedocs.io/en/latest/) -
-   used deprecated funtion
+   used deprecated function
 
 # Resources
 

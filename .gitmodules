@@ -1,0 +1,3 @@
+[submodule "packages/django-modern-rest"]
+	path = packages/django-modern-rest
+	url = git@github.com:TakiMoysha/django-modern-rest
