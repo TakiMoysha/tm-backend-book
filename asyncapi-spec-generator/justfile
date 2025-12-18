@@ -1,0 +1,3 @@
+
+test filename="main.py" *ARGS:
+    uv run pytest {{ filename }} --capture=no
