@@ -1,3 +1,6 @@
 
+dev *ARGS:
+    uv run granian main.py:asgi --interface asginl {{ ARGS }}
+
 test filename="main.py" *ARGS:
-    uv run pytest {{ filename }} --capture=no
+    uv run pytest {{ filename }} --log-cli-level=info {{ ARGS }}

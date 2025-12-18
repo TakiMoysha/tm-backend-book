@@ -25,7 +25,7 @@ settings.configure(
 
 setup()
 
-app = asgi.ASGIHandler()
+asgi = asgi.ASGIHandler()
 
 
 USERS_DB: list["UserModel"] = []
@@ -46,7 +46,11 @@ class UserController(
     Body[MsgSpecUserCreateModel],
 ):
     async def get(self) -> UserModel:
+        """bag with paring GET body"""
         return UserModel(uid=uuid.uuid4(), email="L2rXt@example.com")
+
+    async def post(self) -> UserModel:
+        return UserModel(uid=uuid.uuid4(), email=self.parsed_body.email)
 
 
 router = Router(
@@ -69,17 +73,6 @@ def logging_config():
     logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
 
-@pytest.fixture()
-def logger():
-    logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
-    return logging.getLogger(__name__)
-
-
-def test_resolver(logger):
-    logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.DEBUG)
+def test_resolver():
     resolver = get_resolver()
-    print(resolver)
     logging.info(resolver)
-    logging.warning(resolver)
-    logger.info(resolver)
-    logger.warning(resolver)
