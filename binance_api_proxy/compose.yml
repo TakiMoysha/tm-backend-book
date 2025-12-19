@@ -1,0 +1,71 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg17
+    container_name: binance_timescaledb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: binance_proxy
+    ports:
+      - "5432:5432"
+    volumes:
+      - binance_timescaledb_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  valkey:
+    image: valkey/valkey:9.0.1
+    container_name: binance_valkey
+    ports:
+      - "6379:6379"
+    volumes:
+      - binance_valkey_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # binance_api_proxy:
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfile
+  #   container_name: binance_proxy_app
+  #   depends_on:
+  #     timescaledb:
+  #       condition: service_healthy
+  #     valkey:
+  #       condition: service_healthy
+  #   environment:
+  #     # Database
+  #     DATABASE_HOST: timescaledb
+  #     DATABASE_PORT: 5432
+  #     DATABASE_USER: postgres
+  #     DATABASE_PASSWORD: postgres
+  #     DATABASE_DATABASE: binance_proxy
+  #
+  #     # Redis
+  #     RLCACHE_HOST: redis
+  #     RLCACHE_PORT: 6379
+  #
+  #     # Application
+  #     DEBUG: "true"
+  #     LOG_LEVEL: INFO
+  #
+  #     # Binance
+  #     BINANCE_SYMBOLS: '["ETH/USDT"]'
+  #   ports:
+  #     - "5555:5555" # ZMQ trades publisher
+  #     - "5556:5556" # ZMQ orderbook publisher
+  #     - "5557:5557" # ZMQ request-reply
+  #   volumes:
+  #     - ./src:/app/src
+  #   restart: unless-stopped
+
+volumes:
+  binance_timescaledb_data:
+  binance_valkey_data:

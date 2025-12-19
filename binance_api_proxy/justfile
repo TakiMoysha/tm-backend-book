@@ -1,0 +1,7 @@
+set dotenv-load
+
+dev *ARGS:
+    uv run granian main.py:asgi --interface asginl {{ ARGS }}
+
+test filename="main.py" *ARGS:
+    uv run pytest {{ filename }} --disable-warnings --log-cli-level=info {{ ARGS }}

@@ -1,0 +1,51 @@
+[project]
+name = "binance-api-proxy"
+version = "0.1.0"
+description = "Binance data proxy with ZeroMQ for scalping/backtesting"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.125.0",
+    "uvicorn[standard]>=0.34.0",
+    "ccxt>=4.4.0",
+    "websockets>=14.1",
+    "asyncpg>=0.30.0",
+    "advanced-alchemy>=1.8.2",
+    "sqlalchemy[asyncio]>=2.0.36",
+    "alembic>=1.14.0",
+    "redis[hiredis]>=5.2.1",
+    "pyzmq>=27.1.0",
+    "msgpack>=1.1.2",
+    "pydantic>=2.12.5",
+    "uvloop>=0.21.0",
+    "python-dotenv>=1.0.1",
+    "structlog>=24.4.0",
+    "tenacity>=9.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
