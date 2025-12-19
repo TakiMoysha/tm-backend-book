@@ -6,8 +6,7 @@
 Пример api в @example.py.
 
 ## Что необходимо реализовать
-- сканирование django маршрутов, после загрузки приложений
-- парсинг маршрутов, на соответствие `AsyncAPIProtocol(typing.Protocol)`
+- [?] парсинг маршрутов, на соответствие `AsyncAPIProtocol(typing.Protocol)`
 - то, что поддерживает грузит данные из маршута и получаем `SpecPlan`:
     - маппинг в asyncapi operations (send/receive)
     - конвертация `msgspec.Struct` (`pydantic.BaseModel` потом, просто держим в голове для расширения)
