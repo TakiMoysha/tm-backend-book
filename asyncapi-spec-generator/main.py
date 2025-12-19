@@ -139,6 +139,9 @@ class AsyncApiServersObject(Dict[str, AsyncApiServerObject]):
     pass
 
 
+TYPE_MAP = {
+}
+
 def asyncapi_channel():
     """decorator for function-based views"""
 
