@@ -1,0 +1,14 @@
+set dotenv-load
+
+alembic_config := "app/database/migrations/alembic.ini"
+asgi_file := "app/asgi.py"
+
+
+[doc("ex: just fastapi dev")]
+fastapi file=asgi_file  *ARGS:
+  uv run fastapi {{ARGS}}
+
+
+# ex: just alembic revision --autogenerate
+alembic *ARGS:
+  uv run -m alembic -c {{alembic_config}} {{ARGS}}
