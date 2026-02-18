@@ -17,6 +17,9 @@ dependencies = [
     "sentry-sdk[django]>=2.43.0",
 ]
 
-    
+
 [tool.uv.sources]
 django_modern_rest = { path = "../../..//projects/django-modern-rest", editable = true }
+
+[dependency-groups]
+docs = ["pdoc>=16.0.0"]

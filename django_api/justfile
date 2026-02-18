@@ -1,3 +1,6 @@
 
 test *ARGS:
     uv run pytest asgi.py --capture=no
+
+pdoc packagename:
+    uv run pdoc --output-dir ./docs { packagename }
