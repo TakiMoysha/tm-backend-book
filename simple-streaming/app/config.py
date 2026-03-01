@@ -10,10 +10,10 @@ class SinkConfig:
     type: str = "clickhouse_connect"
     host: str = field(default_factory=lambda: os.getenv("APP__CLICKHOUSE_HOST", "localhost"))
     port: int = field(default_factory=lambda: int(os.getenv("APP__CLICKHOUSE_PORT", 8123)))
-    database: str = field(default_factory=lambda: os.getenv("APP__CLICKHOUSE_DATABASE", "coinbase"))
+    database: str = "coinbase"
     table: str = "coinbase_ticker"
-    user: str = field(default_factory=lambda: os.getenv("APP__CLICKHOUSE_USER", "coinbase"))
-    password: str = field(default_factory=lambda: os.getenv("APP__CLICKHOUSE_PASSWORD", "demo_coinbase"))
+    user: str = "coinbase"
+    password: str = "demo_coinbase"
 
 
 @dataclass
@@ -25,8 +25,8 @@ class SourceConfig:
     def subscription(self):
         """customizable parameter, can be loaded from remote storage, file, etc."""
         return {
-            "product_ids": ["BTC-USDT", "ETH-USDT", "DOT-USDT"],
-            "channels": ["ticker"],
+            "product_ids": ["BTC-USD", "ETH-USD"],
+            "channels": ["ticker_batch"],
         }
 
 

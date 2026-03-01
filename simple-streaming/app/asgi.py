@@ -14,8 +14,7 @@ def spawn_worker(worker: BaseWorker, STOP_EVENT: asyncio.Event):
     async def _async_task_processor():
         identity = asyncio.current_task().get_name()
         try:
-            while not STOP_EVENT.is_set():
-                await asyncio.sleep(1)
+            await worker.start(STOP_EVENT)
         except asyncio.CancelledError:
             pass
         logging.info(f"Worker {identity} stopped")

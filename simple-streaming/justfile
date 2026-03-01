@@ -1,3 +1,7 @@
 
 dev *ARGS:
   uv run uvicorn app.asgi:app {{ ARGS }}
+
+# ex: just test --capture=no ./tests/test_file.py::test_fuction
+test *ARGS:
+  uv run pytest --log-cli-level=INFO {{ ARGS }}
