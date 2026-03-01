@@ -1,0 +1,3 @@
+
+dev *ARGS:
+  uv run uvicorn app.asgi:app {{ ARGS }}
